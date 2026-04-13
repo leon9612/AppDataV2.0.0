@@ -1,1 +1,334 @@
-<?php /*** PHP Encode v1.0 by zeura.com ***/ $XnNhAWEnhoiqwciqpoHH=file(__FILE__);eval(base64_decode("aWYoIWZ1bmN0aW9uX2V4aXN0cygiWWl1bklVWTc2YkJodWhOWUlPOCIpKXtmdW5jdGlvbiBZaXVuSVVZNzZiQmh1aE5ZSU84KCRnLCRiPTApeyRhPWltcGxvZGUoIlxuIiwkZyk7JGQ9YXJyYXkoNjU1LDIzNiw0MCk7aWYoJGI9PTApICRmPXN1YnN0cigkYSwkZFswXSwkZFsxXSk7ZWxzZWlmKCRiPT0xKSAkZj1zdWJzdHIoJGEsJGRbMF0rJGRbMV0sJGRbMl0pO2Vsc2UgJGY9dHJpbShzdWJzdHIoJGEsJGRbMF0rJGRbMV0rJGRbMl0pKTtyZXR1cm4oJGYpO319"));eval(base64_decode(YiunIUY76bBhuhNYIO8($XnNhAWEnhoiqwciqpoHH)));eval(ZsldkfhGYU87iyihdfsow(YiunIUY76bBhuhNYIO8($XnNhAWEnhoiqwciqpoHH,2),YiunIUY76bBhuhNYIO8($XnNhAWEnhoiqwciqpoHH,1)));__halt_compiler();aWYoIWZ1bmN0aW9uX2V4aXN0cygiWnNsZGtmaEdZVTg3aXlpaGRmc293Iikpe2Z1bmN0aW9uIFpzbGRrZmhHWVU4N2l5aWhkZnNvdygkYSwkaCl7aWYoJGg9PXNoYTEoJGEpKXtyZXR1cm4oZ3ppbmZsYXRlKGJhc2U2NF9kZWNvZGUoJGEpKSk7fWVsc2V7ZWNobygiRXJyb3I6IEZpbGUgTW9kaWZpZWQiKTt9fX0=a2c34f9657533301cbedde880708107dc1a8b8121VrrchM7Ev5PFe+gdZkz4+A4vlJA1tSaxIAhF3ASWJZQKWVGThTmdqQZJ+HyIvsa+wjnxbYlzdiam+0cAufgH7Y1arW6W1+3ukfysEt4gC2CBkFw/CIMg+Mt3wuZ7ziE8c27d+7eibjq3PVt4vDjXexQj2CL+t6m6hw5TuRSD4dEMRiT3yPCw3zvQRQEPguPn2EL24Qfbz/N02zjEJ9iTo6Hjg9sPEkd+owC/QvMVeN6lXFSXqmB5WDO0RZ2ELkKiWfD/5mOd+98ESQIPhsb4nuKGap+Iteojyrk+uX56XOL7tOXo6PPo9YeHfGRN+5ZW6MHo0/Bv99uvXwENJ/tdyOgGV3tXuw29w7fd/a3P12O6CU9dZ+F/zmQtFP8vHs2fv7IEc/xu2fN0YV/tXc4bMOY3u726Hry5mDivLq6HL882CWvXj1rvznsTi6DXfJy0nnwev/Tg+uXb0+w/Ybzy55V2VQi/52F1WWNDby2pv6gNbRNeeDga4SRQ3lIvTPkT1B4ThAj3I+YRRoJ6WzIvxgJI+ah4zzgeOB7nCSUG+pPEJ061EKTyLNCQCs6I+Fbck6tyPHNGKOoytSfmhryJWYBnyoDo24/ffyYE4dYoVk5GO4Mtw4Ra6yhZ+P9XTSNeXE0raNz/wKHDBB44aPzOgpYRACNKKgLfSInxDbQsTn3os+7F8PxEE0b1E5YgwTnenOwty0fiNmSKfooyDwRVOKZagMBmzdE32IpxMiQBv7JbHgFNWZ2Wn9CvSAKTSNFZNSApCKZTxte5BIGPQ54OYw2CofLXjXMiAWGbrASjGgjtD/eHo7R0/c5bbeHB1uoUptBSnxiWLAYBWaV1WL3+JaQZaFAPZtcmfNF19nRCTI54RzoTAP+wO8RJwyE/UcfjFFBv/2Gyvsn2IHAtJDEixynhr7oc0rA2RDCPijLcONjBn3qdz4iaKzV562M1cFQsYXnJBPmu6thdj7m8pwwos9SDk3s2StAE6g0pTNQ67eako0GhWZ6BFiInEx85uLQDBoTYp1j6lGLYqeOjHvX6/fc9Xs2WLmforQiJppmLU0kpjKnDSmAplUL+QxlHvfbNXhqE4ZOr1F6YrC1pQBZsJYRjzCjftlqoqgxso8UTR1ZvmeBtFHD891TAHPdQEY9auCAOA4V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
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Malineacion;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
+use App\Libraries\Encrypt;
+use App\Traits\EventosTrait;
+
+class Cal extends Controller
+{
+    use EventosTrait;
+
+    //    var $key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQSflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+    var $key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQSflKxwRJSMeKKF2QT4fwpMeJf36POk6yJVadQssw5c";
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getVehiculo(Request $request)
+    {
+        $r = DB::select("SELECT r.* FROM vehiculos v, hojatrabajo h, pruebas p, resultados r
+                            WHERE v.idvehiculo = h.idvehiculo AND h.idhojapruebas = p.idhojapruebas AND p.idprueba = r.idprueba AND 
+                            p.idtipo_prueba = " . $request->input('idtipo_prueba') . " AND v.numero_placa = '" . $request->input('placa') . "' AND p.estado = 2  ORDER BY h.idhojapruebas DESC ");
+
+        return response($r);
+    }
+
+    public function index()
+    {
+
+
+        if (session('sesionUser') !== "" && session('sesionUser') !== false && session('sesionUser') !== null) {
+
+            $encrypt = new Encrypt();
+
+            // Obtener la IP del servidor desde .env
+
+            $jsonPath = storage_path('app/system/lineas.json');
+            $jsonContent = file_get_contents($jsonPath, true);
+            $json = json_decode($encrypt->decrypt($jsonContent)); // Objetos stdClass
+
+            $data['maquinas'] = [];
+
+            // Recorrer y agregar cada máquina al array
+            foreach ($json as $indice => $objeto) {
+                if ($objeto->conf_idtipo_prueba == 10 && $objeto->activo == 1) {
+                    // Crear un objeto con la estructura que espera la vista
+                    $data['maquinas'][] = (object)[
+                        'idmaquina' => $objeto->idconf_maquina . '-' . strtoupper($objeto->serie_maquina),
+                        'maquina' => strtoupper($objeto->nombre) . '-' . strtoupper($objeto->marca) . '-' . strtoupper($objeto->serie_maquina) . '-' . strtoupper($objeto->serie_banco)
+                    ];
+                }
+            }
+            $data['placas'] = DB::select("select
+            p.*,
+            v.numero_placa as 'placa'
+            from vehiculos v, hojatrabajo h, pruebas p
+            where
+            v.idvehiculo = h.idvehiculo and h.idhojapruebas = p.idhojapruebas and
+             p.idtipo_prueba=10 and p.estado = 0 and
+            date_format(p.fechainicial, '%y-%m-%d') = date_format(curdate(), '%y-%m-%d') and (v.tipo_vehiculo = 1 or v.tipo_vehiculo=2) order by p.fechainicial asc ");
+
+            $data['usuarios'] = DB::select("select u.IdUsuario, concat(u.nombres,' ',u.apellidos ) as 'nombre' from usuarios u where u.idperfil = 2 and u.estado = 1");
+
+            return view('TipoPrueba.alineacion', $data);
+        } else {
+            return redirect()->intended('/');
+        }
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $Mal = new Malineacion();
+        $data = request()->except('_token');
+        //validacion de campos
+        $validated = $request->validate([
+            'eje1' => 'required',
+            'eje2' => 'required',
+            'idprueba' => 'required',
+            'selEstado' => 'required',
+            'selUsuario' => 'required',
+            'selMaquina' => 'required',
+        ]);
+        $idmaquina = explode('-', request()->input('selMaquina'))[0];
+        $idmaquina = intval($idmaquina);
+        // var_dump($idmaquina);
+
+        date_default_timezone_set('America/bogota');
+        $now = date("Y-m-d H:i:s");
+        //        $now = date('Y-m-d H:i:s'); //Fomat Date and time
+        if (versionAplicaction() == 1) {
+            DB::insert("INSERT INTO resultados VALUES (NULL, " . request()->input('idprueba') . " , 'Version software', '1.0' , '" . $now . "', 'EasyTecmmas', '100', AES_ENCRYPT('" . $this->encr(request()->input('idprueba'), 'Version software', '1.0', $now, 'EasyTecmmas', '100') . "','" . $this->key . "'))");
+        }
+        DB::insert("INSERT INTO resultados VALUES (NULL, " . request()->input('idprueba') . " , '1', " . request()->input('eje1') . " , '" . $now . "', 'Alineacion eje 1', '141', AES_ENCRYPT('" . $this->encr(request()->input('idprueba'), '1', request()->input('eje1'), $now, 'Alineacion eje 1', '141') . "','" . $this->key . "'))");
+        if (versionAplicaction() == 0) {
+            $logeje1 = $this->generarLogNatural(request()->input('eje1'));
+            $logeje1_json = json_encode($logeje1);
+            DB::insert("INSERT INTO control_alineacion VALUES (NULL,'" . request()->input('placa') . "' , " . $idmaquina . " , '" . $now . "',  1 , " . request()->input('eje1') . "  , '" . $logeje1_json . "')");
+        }
+
+        //eje 2
+        DB::insert("INSERT INTO resultados VALUES (NULL, " . request()->input('idprueba') . " , '2', " . request()->input('eje2') . " , '" . $now . "', 'Alineacion eje 2', '141', AES_ENCRYPT('" . $this->encr(request()->input('idprueba'), '2', request()->input('eje2'), $now, 'Alineacion eje 2', '141') . "','" . $this->key . "'))");
+        if (versionAplicaction() == 0) {
+            $logeje2 = $this->generarLogNatural(request()->input('eje2'));
+            $logeje2_json = json_encode($logeje2);
+            DB::insert("INSERT INTO control_alineacion VALUES (NULL,'" . request()->input('placa') . "' , " . $idmaquina . " , '" . $now . "',  2 , " . request()->input('eje2') . "  , '" . $logeje2_json . "')");
+        }
+
+        //insert Al Eje3
+        if (request()->input('eje3') != "" || request()->input('eje3') != null) {
+            DB::insert("INSERT INTO resultados VALUES (NULL, " . request()->input('idprueba') . " , '3', " . request()->input('eje3') . " , '" . $now . "', 'Alineacion eje 3', '141', AES_ENCRYPT('" . $this->encr(request()->input('idprueba'), '3', request()->input('eje3'), $now, 'Alineacion eje 3', '141') . "','" . $this->key . "'))");
+            if (versionAplicaction() == 0) {
+                $logeje3 = $this->generarLogNatural(request()->input('eje3'));
+                $logeje3_json = json_encode($logeje3);
+                DB::insert("INSERT INTO control_alineacion VALUES (NULL,'" . request()->input('placa') . "' , " . $idmaquina . " , '" . $now . "',  3 , " . request()->input('eje3') . "  , '" . $logeje3_json . "')");
+            }
+        }
+        //insert Al Eje4
+        if (request()->input('eje4') != "" || request()->input('eje4') != null) {
+
+            DB::insert("INSERT INTO resultados VALUES (NULL, " . request()->input('idprueba') . " , '4', " . request()->input('eje4') . " , '" . $now . "', 'Alineacion eje 4', '141', AES_ENCRYPT('" . $this->encr(request()->input('idprueba'), '4', request()->input('eje4'), $now, 'Alineacion eje 4', '141') . "','" . $this->key . "'))");
+            if (versionAplicaction() == 0) {
+                $logeje4 = $this->generarLogNatural(request()->input('eje4'));
+                $logeje4_json = json_encode($logeje4);
+                DB::insert("INSERT INTO control_alineacion VALUES (NULL,'" . request()->input('placa') . "' , " . $idmaquina . " , '" . $now . "',  4 , " . request()->input('eje4') . "  , '" . $logeje4_json . "')");
+            }
+        }
+        //insert Al Eje5
+        if (request()->input('eje5') != "" || request()->input('eje5') != null) {
+            DB::insert("INSERT INTO resultados VALUES (NULL, " . request()->input('idprueba') . " , '5', " . request()->input('eje5') . " , '" . $now . "', 'Alineacion eje 5', '141', AES_ENCRYPT('" . $this->encr(request()->input('idprueba'), '5', request()->input('eje5'), $now, 'Alineacion eje 5', '141') . "','" . $this->key . "'))");
+            if (versionAplicaction() == 0) {
+                $logeje5 = $this->generarLogNatural(request()->input('eje5'));
+                $logeje5_json = json_encode($logeje5);
+                DB::insert("INSERT INTO control_alineacion VALUES (NULL,'" . request()->input('placa') . "' , " . $idmaquina . " , '" . $now . "',  5 , " . request()->input('eje5') . "  , '" . $logeje5_json . "')");
+            }
+        }
+        $seriemaquina = explode('-', request()->input('selMaquina'))[1];
+        if (sicov() == 'INDRA') {
+            $resultado = $this->eventosindra(request()->input('placa'), $seriemaquina, request()->input('prueba'));
+            if (!$resultado['success']) {
+                return back()->with("error", "Datos guardados pero falló el registro en SINDRA");
+            }
+        } else {
+            $resultado = $this->eventosci2($request);
+            if (!$resultado['success']) {
+                $mensajeError = $resultado['message'] ?? $resultado['error'] ?? 'Error desconocido';
+                return back()->with("error", "Error en el evento de finalizacion de sicov: " . $mensajeError);
+            }
+        }
+
+        try {
+            DB::update("UPDATE pruebas p set p.estado = " . request()->input('selEstado') . ", p.idmaquina = " . $idmaquina . ", p.idusuario = " . request()->input('selUsuario') . ", p.fechafinal = '" . $now . "' , p.enc = " . "AES_ENCRYPT('" . $this->updateEncr(request()->input('idprueba'), request()->input('selEstado'), $idmaquina, request()->input('selUsuario'), $now) . "','" . $this->key . "')" . " where p.idprueba = " . request()->input('idprueba'));
+            return back()->with("success", "Datos Guardados correctamente");
+        } catch (\Exception $e) {
+            return back()->with("error", "Error al actualizar: " . $e->getMessage());
+        }
+    }
+
+    function generarLogNatural($valorReferencia, $cantidad = 20)
+    {
+        $log = [];
+
+        $valorReferencia = min(9, $valorReferencia);
+        $esPositivo = $valorReferencia >= 0;
+
+        // Valor inicial bajo
+        if ($esPositivo) {
+            $valorInicial = (mt_rand() / mt_getrandmax()) * min(3, $valorReferencia); // 0 a 3
+        } else {
+            $valorInicial = - ((mt_rand() / mt_getrandmax()) * 8 + 1); // -1 a -9
+        }
+
+        $valorActual = round($valorInicial, 1);
+        $log[] = $valorActual;
+
+        // Calcular incremento promedio por paso
+        $incrementoPromedio = ($valorReferencia - $valorActual) / ($cantidad - 1);
+
+        for ($i = 1; $i < $cantidad - 1; $i++) {
+            // Variación alrededor del incremento promedio
+            $variacion = $incrementoPromedio + (mt_rand() / mt_getrandmax()) * 0.4 - 0.2;
+
+            $nuevoValor = $valorActual + $variacion;
+
+            // Asegurar que no sobrepase el valor referencia
+            if ($esPositivo) {
+                $nuevoValor = min($valorReferencia, max(0, $nuevoValor));
+            } else {
+                $nuevoValor = min($valorReferencia, max(-9, $nuevoValor));
+            }
+
+            $nuevoValor = round($nuevoValor, 1);
+            $log[] = $nuevoValor;
+            $valorActual = $nuevoValor;
+        }
+
+        // Último valor siempre es el valor referencia
+        $log[] = round($valorReferencia, 1);
+
+        return $log;
+    }
+
+    // public function eventosindra($placa, $seriemaquina)
+    // {
+    //     date_default_timezone_set('America/bogota');
+    //     $date = date("Y-m-d H:i:s");
+    //     $idrunt = env('ID_RUNT');
+    //     $cadenasicov = "862|" . $date . "|Alineacion|" . $placa . "|" . $seriemaquina . "|2|" . $idrunt;
+    //     DB::insert("INSERT INTO eventosindra VALUES (NULL,'" . $placa . "-Alineacion','" . $cadenasicov . "','" . $date . "','e',0,'Operación pendiente')");
+    // }
+
+    // public function eventosci2(Request $request)
+    // {
+    //     date_default_timezone_set('America/bogota');
+    //     $date = date("Ymd H:i:s");
+    //     // Obtener la IP desde el .env (DB_HOST)
+    //     $ipBaseDatos = env('SERVER_HOST');
+    //     $url = "http://{$ipBaseDatos}/et/index.php/oficina/ci2/Cci2/ciclo_prueba";
+    //     // Hacer la petición GET con los parámetros
+    //     $response = Http::get($url, [
+    //         'fecha' => $date,
+    //         'tipoPrueba' => $request->input('tipopruebaCi2'),
+    //         'placa' => trim($request->input('placa')),
+    //         'serialEquipo' =>  explode('-', request()->input('selMaquina'))[1],
+    //         'idEvento' => 2,
+    //         'mensajeEvento' => "FIN DE PRUEBA"
+    //     ]);
+
+    //     // var_dump($response);
+
+    //     // Verificar si fue exitosa
+    //     if ($response->successful()) {
+    //         $respuesta = $response->body();
+    //         echo json_encode(['success' => true, 'data' => $respuesta]);
+    //     } else {
+    //         echo json_encode(['success' => false, 'error' => $response->status()]);
+    //     }
+    // }
+
+    public function encr($idprueba, $tiporesultado, $valor, $fechaguardado, $observacion, $idconfig_prueba)
+    {
+        $dat['idprueba'] = $idprueba;
+        $dat['tiporesultado'] = $tiporesultado;
+        $dat['valor'] = $valor;
+        $dat['fechaguardado'] = $fechaguardado;
+        $dat['observacion'] = $observacion;
+        $dat['idconfig_prueba'] = $idconfig_prueba;
+        $enc = json_encode($dat);
+        return $enc;
+    }
+
+    public function updateEncr($idprueba, $estado, $idmaquina, $idusuario, $fechafinal)
+    {
+        $res = DB::select("select * from pruebas p where p.idprueba = $idprueba");
+        $idhojapruebas = $res[0]->idhojapruebas;
+        $dat['idhojapruebas'] = "$idhojapruebas";
+        $dat['fechainicial'] = $res[0]->fechainicial;
+        $dat['prueba'] = "0";
+        $dat['estado'] = $estado;
+        $dat['fechafinal'] = $fechafinal;
+        $dat['idmaquina'] = $idmaquina;
+        $dat['idusuario'] = $idusuario;
+        $dat['idtipo_prueba'] = "10";
+        $enc = json_encode($dat);
+        return $enc;
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}
