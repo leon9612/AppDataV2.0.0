@@ -17,7 +17,7 @@
                 <div class="col-lg-12 mt-12 mt-lg-12 d-flex align-items-stretch">
                     <form action="{{ url('/visual') }}" method="POST" class="form-control">
                         @csrf
-                        @if ($message = Session::get('succses'))
+                        @if ($message = Session::get('success'))
                         <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">Exitoso</h4>
                             <p>{{ $message }}</p>
@@ -282,8 +282,11 @@
                             </div>
                             <div class="row">
                                 <div style="text-align: center">
-                                    <button style="height: 55px; width: 150px" class="btn btn-outline-success"
-                                        type="submit">Guardar</button>
+                                    <input type="hidden" name="tipoprueba" id="tipoprueba" value="8">
+                                    <input type="hidden" name="tipopruebaCi2" id="tipopruebaCi2" value="18">
+                                    <input type="hidden" name="prueba" id="prueba" value="Visual">
+                                    <button style="height: 55px; width: 150px" id="btn-guardar" class="btn btn-outline-success"
+                                        type="submit" disabled>Guardar</button>
 
                                 </div>
                             </div>
@@ -308,6 +311,7 @@
             const rowText = $(this).text().toLowerCase();
             $(this).toggle(rowText.includes(search));
         });
+
     });
 </script>
 
@@ -340,8 +344,8 @@
             }
         });
 
-
-
+        document.getElementById("btn-guardar").disabled = false;
+        console.log(document.getElementById("btn-guardar"))
     });
 
 
@@ -359,7 +363,7 @@
         $("#placa").val(placa2[1]);
         $("#idprueba").val(placa2[0]);
         $("#idhojapruebas").val(placa2[2]);
-        console
+
         Swal.fire({
             title: 'Cargando defectos...',
             allowOutsideClick: false,
@@ -834,43 +838,45 @@
     }
 
 
-    $("#btn-evento").click(function(ev) {
-        ev.preventDefault();
-        if ($(".Vplaca").val() == null || $(".Vplaca").val() == "") {
-            Toast.fire({
-                icon: "error",
-                title: "Seleccione una placa"
-            });
-        } else {
-            $.ajax({
-                url: 'getevento/',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    placa: $(".Vplaca").val(),
-                    prueba: 'Visual',
-                    tipoprueba: '8',
-                    tipovehiculo: '1',
-                    tipoevento: '1',
-                    _token: $("input[name='_token']").val()
-                },
-                success: function(data, textStatus, jqXHR) {
-                    Toast.fire({
-                        icon: "success",
-                        title: "Evento creado, tenga en cuenta el tiempo de duracion de la prueba, para enviar los datos."
-                    });
+    // $("#btn-evento").click(function(ev) {
+    //     ev.preventDefault();
+    //     if ($(".Vplaca").val() == null || $(".Vplaca").val() == "") {
+    //         Toast.fire({
+    //             icon: "error",
+    //             title: "Seleccione una placa"
+    //         });
+    //     } else {
+    //         $.ajax({
+    //             url: 'getevento/',
+    //             type: 'post',
+    //             dataType: 'json',
+    //             data: {
+    //                 placa: $(".Vplaca").val(),
+    //                 prueba: 'Visual',
+    //                 tipoprueba: '8',
+    //                 tipovehiculo: '1',
+    //                 tipoevento: '1',
+    //                 _token: $("input[name='_token']").val()
+    //             },
+    //             success: function(data, textStatus, jqXHR) {
+    //                 document.getElementById("btn-guardar-visual").disabled = false;
+    //                 Swal.close();
+    //                 Toast.fire({
+    //                     icon: "success",
+    //                     title: "Evento creado, tenga en cuenta el tiempo de duracion de la prueba, para enviar los datos."
+    //                 });
 
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('error')
-                    console.log(jqXHR.responseText)
-                    console.log(textStatus)
-                    console.log(errorThrown)
-                }
-            });
-        }
+    //             },
+    //             error: function(jqXHR, textStatus, errorThrown) {
+    //                 console.log('error')
+    //                 console.log(jqXHR.responseText)
+    //                 console.log(textStatus)
+    //                 console.log(errorThrown)
+    //             }
+    //         });
+    //     }
 
-    });
+    // });
 
     $("#btn-buscar-placa").click(function(e) {
         e.preventDefault();

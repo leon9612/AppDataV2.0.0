@@ -12,7 +12,7 @@
                 <div class="col-lg-12 mt-12 mt-lg-12 d-flex align-items-stretch">
                     <form action="{{ url('/lum') }}" method="POST" class="form-control">
                         @csrf
-                        @if ($message = Session::get('succses'))
+                        @if ($message = Session::get('success'))
                         <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">Exitoso</h4>
                             <p>{{ $message }}</p>
@@ -25,10 +25,7 @@
                         </div>
                         @endif
                         <div style="margin-top: 15px">
-                            <x-vehicle-selector
-                                :placas="$placas"
-                                :usuarios="$usuarios"
-                                :maquinas="$maquinas" />
+                            <x-vehicle-selector :placas="$placas" :usuarios="$usuarios" :maquinas="$maquinas" />
                             <div class="row">
                                 <div class="col-sm-12 col-md-3 col-lg-3" style="align-content: center">
                                     <div class="input-group mb-3" style="align-content: center">
@@ -52,10 +49,12 @@
 
                                     <div style="justify-content: center; display: flex; margin-top: 15px; width: 100%;">
                                         <!-- COLUMNA IZQUIERDA: BAJA (INTENSIDAD) -->
-                                        <div class="col-sm-12 col-md-6" style="border-right: 1px solid #ddd; padding-right: 25px;">
+                                        <div class="col-sm-12 col-md-6"
+                                            style="border-right: 1px solid #ddd; padding-right: 25px;">
                                             <!-- Título de la columna BAJA -->
                                             <div style="text-align: center; margin-bottom: 20px;">
-                                                <label style="color: rgb(0, 4, 255); font-size: 16px; font-weight: bold; background-color: #e6f7ff; padding: 5px 15px; border-radius: 5px;">
+                                                <label
+                                                    style="color: rgb(0, 4, 255); font-size: 16px; font-weight: bold; background-color: #e6f7ff; padding: 5px 15px; border-radius: 5px;">
                                                     INTENSIDAD
                                                 </label>
                                             </div>
@@ -113,7 +112,8 @@
                                         <div class="col-sm-12 col-md-6" style="padding-left: 25px;">
                                             <!-- Título de la columna INCLI -->
                                             <div style="text-align: center; margin-bottom: 20px;">
-                                                <label style="color: rgb(0, 4, 255); font-size: 16px; font-weight: bold; background-color: #e6f7ff; padding: 5px 15px; border-radius: 5px;">
+                                                <label
+                                                    style="color: rgb(0, 4, 255); font-size: 16px; font-weight: bold; background-color: #e6f7ff; padding: 5px 15px; border-radius: 5px;">
                                                     INCLINACIÓN
                                                 </label>
                                             </div>
@@ -176,8 +176,11 @@
 
                         <div class="row">
                             <div style="text-align: center">
-                                <button style="height: 55px; width: 150px" class="btn btn-outline-success"
-                                    type="submit">Guardar</button>
+                                <input type="hidden" name="tipoprueba" id="tipoprueba" value="1">
+                                <input type="hidden" name="tipopruebaCi2" id="tipopruebaCi2" value="9">
+                                <input type="hidden" name="prueba" id="prueba" value="Luces">
+                                <button style="height: 55px; width: 150px" id="btn-guardar"
+                                    class="btn btn-outline-success" type="submit">Guardar</button>
 
                             </div>
                         </div>
@@ -223,6 +226,7 @@
             $('#selMotocarro').val(localStorage.getItem('motocarro'));
             getMaquina();
         }
+        document.getElementById("btn-guardar").disabled = true;
     });
     $("#selMotocarro").change(function(e) {
         e.preventDefault();
@@ -249,7 +253,8 @@
                     $('#selMaquina').empty();
                     // $('.selMaquina').append('<option value="">Seleccione una maquina</option>');
                     $.each(data, function(i, res) {
-                        $('#selMaquina').append('<option value="' + res.idmaquina + '">' + res.maquina +
+                        $('#selMaquina').append('<option value="' + res.idmaquina + '">' + res
+                            .maquina +
                             '</option>');
                     });
                 } else {
@@ -334,58 +339,7 @@
 
         }
     });
-    $("#btn-evento").click(function(ev) {
-        ev.preventDefault();
-        document.getElementById("btn-evento").disabled = true;
-        if ($(".Vplaca").val() == null || $(".Vplaca").val() == "") {
-            Toast.fire({
-                icon: "error",
-                title: "Seleccione una placa",
-                position: "bottom-end"
-            });
-            document.getElementById("btn-evento").disabled = false;
-        } else {
-            Toast.fire({
-                icon: "info",
-                title: "Creando evento...",
-                timeout: 1000,
-                position: "bottom-end"
-            });
-            $.ajax({
-                url: 'getevento/',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    placa: $(".Vplaca").val(),
-                    prueba: 'Luces',
-                    tipoprueba: '1',
-                    tipovehiculo: '3',
-                    tipoevento: '1',
-                    _token: $("input[name='_token']").val()
-                },
-                success: function(data, textStatus, jqXHR) {
-                    document.getElementById("btn-evento").disabled = false;
-                    Toast.fire({
-                        icon: "success",
-                        title: "Evento creado, tenga en cuenta el tiempo de duracion de la prueba, para enviar los datos.",
-                        timeout: 1000,
-                        position: "bottom-end"
-                    });
-
-                    // Luego mostrar el toast con un pequeño delay
-                    iniciarContadorRegresivo();
-
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('error')
-                    console.log(jqXHR.responseText)
-                    console.log(textStatus)
-                    console.log(errorThrown)
-                }
-            });
-        }
-
-    });
+    
 
     // Configuración del tiempo (en segundos) - puedes modificar este valor
     const TIEMPO_PRUEBA = 50; // 5 minutos = 300 segundos
@@ -504,12 +458,12 @@
                                     timeout: 100000
                                 });
                             }
-                            
+
                             if (res.observacion == 'baja_derecha')
                                 $("#baja_derecha").val(res.valor);
                             if (res.observacion == 'inclinacion_derecha')
                                 $("#incli_derecha").val(res.valor);
-                          
+
 
 
 

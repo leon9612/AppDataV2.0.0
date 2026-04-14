@@ -12,7 +12,7 @@
                 <div class="col-lg-12 mt-12 mt-lg-12 d-flex align-items-stretch">
                     <form action="{{ url('/ga') }}" method="POST" class="form-control">
                         @csrf
-                        @if ($message = Session::get('succses'))
+                        @if ($message = Session::get('success'))
                         <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">Exitoso</h4>
                             <p>{{ $message }}</p>
@@ -24,10 +24,7 @@
                             <p>{{ $message }}</p>
                         </div>
                         @endif
-                        <x-vehicle-selector
-                            :placas="$placas"
-                            :usuarios="$usuarios"
-                            :maquinas="$maquinas" />
+                        <x-vehicle-selector :placas="$placas" :usuarios="$usuarios" :maquinas="$maquinas" />
                         <div class="row">
                             <div class="col-sm-12 col-md-3 col-lg-3" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
@@ -60,20 +57,19 @@
                 <div class="container" style="justify-content: center; display: flex ">
                     <div class="row">
                         <label
-                            style="color: rgb(0, 4, 255); font-size: 18px; text-align: center; width: 100%; margin-top: 15px; background-color: lightgoldenrodyellow">DATOS TH</label>
+                            style="color: rgb(0, 4, 255); font-size: 18px; text-align: center; width: 100%; margin-top: 15px; background-color: lightgoldenrodyellow">DATOS
+                            TH</label>
                         <div style="justify-content: center; display: flex; margin-top: 15px">
 
                             <br>
                             <div class="col-sm-12 col-md-4 col-lg-4" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" name="tempAmbiente"
-                                            id="tempAmbiente" placeholder="1" 
-                                            value="{{ old('tempAmbiente', $tempAmbiente ?? '') }}">
+                                        <input type="text" class="form-control" name="tempAmbiente" id="tempAmbiente"
+                                            placeholder="1" value="{{ old('tempAmbiente', $tempAmbiente ?? '') }}">
                                         <label for="floatingInput">Temperatura</label>
                                         @if ($errors->has('tempAmbiente'))
-                                        <span
-                                            class="error text-danger">{{ $errors->first('tempAmbiente') }}</span>
+                                        <span class="error text-danger">{{ $errors->first('tempAmbiente') }}</span>
                                         @endif
                                     </div>
 
@@ -82,20 +78,18 @@
                             <div class="col-sm-12 col-md-4 col-lg-4" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" step="0.01"
-                                            name="humedad" id="humedad" placeholder="1"
-                                            value="{{ old('humedad', $humedad ?? '') }}">
+                                        <input type="text" class="form-control" step="0.01" name="humedad" id="humedad"
+                                            placeholder="1" value="{{ old('humedad', $humedad ?? '') }}">
                                         <label for="floatingInput">Humedad</label>
                                         @if ($errors->has('humedad'))
-                                        <span
-                                            class="error text-danger">{{ $errors->first('humedad') }}</span>
+                                        <span class="error text-danger">{{ $errors->first('humedad') }}</span>
                                         @endif
                                     </div>
 
                                 </div>
                             </div>
-                            
-                            
+
+
 
 
                         </div>
@@ -112,12 +106,11 @@
                             <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" name="hc_ralenti"
-                                            id="hc_ralenti" placeholder="1" value="{{ old('hc_ralenti') }}">
+                                        <input type="text" class="form-control" name="hc_ralenti" id="hc_ralenti"
+                                            placeholder="1" value="{{ old('hc_ralenti') }}">
                                         <label for="floatingInput">HC RALENTI</label>
                                         @if ($errors->has('hc_ralenti'))
-                                        <span
-                                            class="error text-danger">{{ $errors->first('hc_ralenti') }}</span>
+                                        <span class="error text-danger">{{ $errors->first('hc_ralenti') }}</span>
                                         @endif
                                     </div>
 
@@ -126,13 +119,11 @@
                             <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="number" class="form-control" step="0.01"
-                                            name="co_ralenti" id="co_ralenti" placeholder="1"
-                                            value="{{ old('co_ralenti') }}">
+                                        <input type="number" class="form-control" step="0.01" name="co_ralenti"
+                                            id="co_ralenti" placeholder="1" value="{{ old('co_ralenti') }}">
                                         <label for="floatingInput">CO RALENTI</label>
                                         @if ($errors->has('co_ralenti'))
-                                        <span
-                                            class="error text-danger">{{ $errors->first('co_ralenti') }}</span>
+                                        <span class="error text-danger">{{ $errors->first('co_ralenti') }}</span>
                                         @endif
                                     </div>
 
@@ -141,13 +132,11 @@
                             <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="number" class="form-control" step="0.01"
-                                            name="co2_ralenti" id="co2_ralenti" placeholder="1"
-                                            value="{{ old('co2_ralenti') }}">
+                                        <input type="number" class="form-control" step="0.01" name="co2_ralenti"
+                                            id="co2_ralenti" placeholder="1" value="{{ old('co2_ralenti') }}">
                                         <label for="floatingInput">CO2 RALENTI</label>
                                         @if ($errors->has('co2_ralenti'))
-                                        <span
-                                            class="error text-danger">{{ $errors->first('co2_ralenti') }}</span>
+                                        <span class="error text-danger">{{ $errors->first('co2_ralenti') }}</span>
                                         @endif
                                     </div>
 
@@ -156,13 +145,11 @@
                             <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="number" class="form-control" step="0.01"
-                                            name="o2_ralenti" id="o2_ralenti" placeholder="1"
-                                            value="{{ old('o2_ralenti') }}">
+                                        <input type="number" class="form-control" step="0.01" name="o2_ralenti"
+                                            id="o2_ralenti" placeholder="1" value="{{ old('o2_ralenti') }}">
                                         <label for="floatingInput">O2 RALENTI</label>
                                         @if ($errors->has('o2_ralenti'))
-                                        <span
-                                            class="error text-danger">{{ $errors->first('o2_ralenti') }}</span>
+                                        <span class="error text-danger">{{ $errors->first('o2_ralenti') }}</span>
                                         @endif
                                     </div>
 
@@ -171,13 +158,11 @@
                             <div class="col-sm-12 col-md-3 col-lg-3" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="number" class="form-control" step="0.01"
-                                            name="rpm_ralenti" id="rpm_ralenti" placeholder="1"
-                                            value="{{ old('rpm_ralenti') }}">
+                                        <input type="number" class="form-control" step="0.01" name="rpm_ralenti"
+                                            id="rpm_ralenti" placeholder="1" value="{{ old('rpm_ralenti') }}">
                                         <label for="floatingInput">RPM RALENTI</label>
                                         @if ($errors->has('rpm_ralenti'))
-                                        <span
-                                            class="error text-danger">{{ $errors->first('rpm_ralenti') }}</span>
+                                        <span class="error text-danger">{{ $errors->first('rpm_ralenti') }}</span>
                                         @endif
                                     </div>
 
@@ -199,12 +184,11 @@
                             <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" name="hc_crucero"
-                                            id="hc_crucero" placeholder="1" value="{{ old('hc_crucero') }}">
+                                        <input type="text" class="form-control" name="hc_crucero" id="hc_crucero"
+                                            placeholder="1" value="{{ old('hc_crucero') }}">
                                         <label for="floatingInput">HC CRUCERO</label>
                                         @if ($errors->has('hc_crucero'))
-                                        <span
-                                            class="error text-danger">{{ $errors->first('hc_crucero') }}</span>
+                                        <span class="error text-danger">{{ $errors->first('hc_crucero') }}</span>
                                         @endif
                                     </div>
 
@@ -213,13 +197,11 @@
                             <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="number" class="form-control" step="0.01"
-                                            name="co_crucero" id="co_crucero" placeholder="1"
-                                            value="{{ old('co_crucero') }}">
+                                        <input type="number" class="form-control" step="0.01" name="co_crucero"
+                                            id="co_crucero" placeholder="1" value="{{ old('co_crucero') }}">
                                         <label for="floatingInput">CO CRUCERO</label>
                                         @if ($errors->has('co_crucero'))
-                                        <span
-                                            class="error text-danger">{{ $errors->first('co_crucero') }}</span>
+                                        <span class="error text-danger">{{ $errors->first('co_crucero') }}</span>
                                         @endif
                                     </div>
 
@@ -228,13 +210,11 @@
                             <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="number" class="form-control" step="0.01"
-                                            name="co2_crucero" id="co2_crucero" placeholder="1"
-                                            value="{{ old('co2_crucero') }}">
+                                        <input type="number" class="form-control" step="0.01" name="co2_crucero"
+                                            id="co2_crucero" placeholder="1" value="{{ old('co2_crucero') }}">
                                         <label for="floatingInput">CO2 CRUCERO</label>
                                         @if ($errors->has('co2_crucero'))
-                                        <span
-                                            class="error text-danger">{{ $errors->first('co2_crucero') }}</span>
+                                        <span class="error text-danger">{{ $errors->first('co2_crucero') }}</span>
                                         @endif
                                     </div>
 
@@ -243,13 +223,11 @@
                             <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="number" class="form-control" step="0.01"
-                                            name="o2_crucero" id="o2_crucero" placeholder="1"
-                                            value="{{ old('o2_crucero') }}">
+                                        <input type="number" class="form-control" step="0.01" name="o2_crucero"
+                                            id="o2_crucero" placeholder="1" value="{{ old('o2_crucero') }}">
                                         <label for="floatingInput">O2 CRUCERO</label>
                                         @if ($errors->has('o2_crucero'))
-                                        <span
-                                            class="error text-danger">{{ $errors->first('o2_crucero') }}</span>
+                                        <span class="error text-danger">{{ $errors->first('o2_crucero') }}</span>
                                         @endif
                                     </div>
 
@@ -258,13 +236,11 @@
                             <div class="col-sm-12 col-md-3 col-lg-3" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="number" class="form-control" step="0.01"
-                                            name="rpm_crucero" id="rpm_crucero" placeholder="1"
-                                            value="{{ old('rpm_crucero') }}">
+                                        <input type="number" class="form-control" step="0.01" name="rpm_crucero"
+                                            id="rpm_crucero" placeholder="1" value="{{ old('rpm_crucero') }}">
                                         <label for="floatingInput">RPM CRUCERO</label>
                                         @if ($errors->has('rpm_crucero'))
-                                        <span
-                                            class="error text-danger">{{ $errors->first('rpm_crucero') }}</span>
+                                        <span class="error text-danger">{{ $errors->first('rpm_crucero') }}</span>
                                         @endif
                                     </div>
 
@@ -276,13 +252,13 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-center align-items-center" style="margin-top: 20px; margin-bottom: 20px">
+                <div class="row justify-content-center align-items-center"
+                    style="margin-top: 20px; margin-bottom: 20px">
                     <div class="col-sm-12 col-md-2 col-lg-2">
                         <div class="input-group mb-3">
                             <div class="form-floating mb-3" style="margin-top: 29px">
-                                <input type="number" class="form-control" step="0.01"
-                                    name="tempMotor" id="tempMotor" placeholder="1"
-                                    value="{{ $tempMotor }}">
+                                <input type="number" class="form-control" step="0.01" name="tempMotor" id="tempMotor"
+                                    placeholder="1" value="{{ $tempMotor }}">
                                 <label for="floatingInput">TEMPERATURA MOTOR</label>
                                 @if ($errors->has('tempMotor'))
                                 <span class="error text-danger">{{ $errors->first('tempMotor') }}</span>
@@ -291,7 +267,10 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-end">
-                        <button style="height: 55px; width: 150px" class="btn btn-outline-success"
+                        <input type="hidden" name="tipoprueba" id="tipoprueba" value="3">
+                        <input type="hidden" name="tipopruebaCi2" id="tipopruebaCi2" value="1">
+                        <input type="hidden" name="prueba" id="prueba" value="Gases">
+                        <button style="height: 55px; width: 150px" id="btn-guardar" class="btn btn-outline-success"
                             type="submit">Guardar</button>
                     </div>
                 </div>
@@ -329,6 +308,7 @@
             $('#selMotocarro').val(localStorage.getItem('motocarro'));
             getMaquina();
         }
+        document.getElementById("btn-guardar").disabled = true;
     });
 
     $(".selPlaca").change(function(e) {
@@ -352,99 +332,7 @@
 
     });
 
-    // $("#btn-evento").click(function(ev) {
-    //     ev.preventDefault();
-    //     if ($(".Vplaca").val() == null || $(".Vplaca").val() == "") {
-    //         Toast.fire({
-    //             icon: "error",
-    //             title: "Seleccione una placa"
-    //         });
-    //     } else {
-    //         $.ajax({
-    //             url: 'getevento/',
-    //             type: 'post',
-    //             dataType: 'json',
-    //             data: {
-    //                 placa: $(".Vplaca").val(),
-    //                 prueba: 'Gases',
-    //                 tipoprueba: '3',
-    //                 tipovehiculo: '1',
-    //                 tipoevento: '1',
-    //                 _token: $("input[name='_token']").val()
-    //             },
-    //             success: function(data, textStatus, jqXHR) {
-    //                 Toast.fire({
-    //                     icon: "success",
-    //                     title: "Evento creado, tenga en cuenta el tiempo de duracion de la prueba, para enviar los datos."
-    //                 });
-
-    //             },
-    //             error: function(jqXHR, textStatus, errorThrown) {
-    //                 console.log('error')
-    //                 console.log(jqXHR.responseText)
-    //                 console.log(textStatus)
-    //                 console.log(errorThrown)
-    //             }
-    //         });
-    //     }
-
-    // });
-
-    $("#btn-evento").click(function(ev) {
-        ev.preventDefault();
-        document.getElementById("btn-evento").disabled = true; // Deshabilitar el botón al hacer clic
-
-        if ($(".Vplaca").val() == null || $(".Vplaca").val() == "") {
-            Toast.fire({
-                icon: "error",
-                title: "Seleccione una placa",
-                position: "bottom-end"
-            });
-              document.getElementById("btn-evento").disabled = false;
-        } else {
-            Toast.fire({
-                icon: "info",
-                title: "Creando evento...",
-                timeout: 1000,
-                position: "bottom-end"
-            });
-            $.ajax({
-                url: 'getevento/',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    placa: $(".Vplaca").val(),
-                    prueba: 'Gases',
-                    tipoprueba: '3',
-                    tipovehiculo: '1',
-                    tipoevento: '1',
-                    _token: $("input[name='_token']").val()
-                },
-                success: function(data, textStatus, jqXHR) {
-                    document.getElementById("btn-evento").disabled = false;
-                    Toast.fire({
-                        icon: "success",
-                        title: "Evento creado, tenga en cuenta el tiempo de duracion de la prueba, para enviar los datos.",
-                        timeout: 1000,
-                        position: "bottom-end"
-                    });
-
-                    // Luego mostrar el toast con un pequeño delay
-                    iniciarContadorRegresivo();
-                    // setTimeout(function() {
-
-                    // }, 100);
-
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('error')
-                    console.log(jqXHR.responseText)
-                    console.log(textStatus)
-                    console.log(errorThrown)
-                }
-            });
-        }
-    });
+    
 
     // Configuración del tiempo (en segundos) - puedes modificar este valor
     const TIEMPO_PRUEBA = 100; // 5 minutos = 300 segundos

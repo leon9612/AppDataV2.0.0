@@ -12,7 +12,7 @@
                 <div class="col-lg-12 mt-12 mt-lg-12 d-flex align-items-stretch">
                     <form action="{{ url('/tax') }}" method="POST" class="form-control">
                         @csrf
-                        @if ($message = Session::get('succses'))
+                        @if ($message = Session::get('success'))
                         <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">Exitoso</h4>
                             <p>{{ $message }}</p>
@@ -77,7 +77,10 @@
 
 
                                 <div class="col-sm-12 col-md-2 col-lg-2">
-                                    <button style="width: 100%; height: 55px;" class="btn btn-outline-success"
+                                    <input type="hidden" name="tipoprueba" id="tipoprueba" value="6">
+                                <input type="hidden" name="tipopruebaCi2" id="tipopruebaCi2" value="16">
+                                <input type="hidden" name="prueba" id="prueba" value="Taximetro">
+                                    <button style="width: 100%; height: 55px;" id="btn-guardar" class="btn btn-outline-success"
                                         type="submit">Guardar</button>
                                 </div>
 
@@ -107,6 +110,11 @@
             toast.onmouseleave = Swal.resumeTimer;
         }
     });
+
+    $(document).ready(function() {
+        document.getElementById("btn-guardar").disabled = true; // Deshabilitar el botón al cargar la página
+    })
+
     $(".selPlaca").change(function(e) {
         e.preventDefault();
         var placa = $('.selPlaca option:selected').attr('value');
@@ -118,55 +126,7 @@
 
     });
 
-    $("#btn-evento").click(function(ev) {
-        ev.preventDefault();
-        document.getElementById("btn-evento").disabled = true;
-        if ($(".Vplaca").val() == null || $(".Vplaca").val() == "") {
-            Toast.fire({
-                icon: "error",
-                title: "Seleccione una placa",
-                position: "bottom-end"
-            });
-            document.getElementById("btn-evento").disabled = false;
-        } else {
-            Toast.fire({
-                icon: "info",
-                title: "Creando evento...",
-                timeout: 1000,
-                position: "bottom-end"
-            });
-            $.ajax({
-                url: 'getevento/',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    placa: $(".Vplaca").val(),
-                    prueba: 'Taximetro',
-                    tipoprueba: '6',
-                    tipovehiculo: '1',
-                    tipoevento: '1',
-                    _token: $("input[name='_token']").val()
-                },
-                success: function(data, textStatus, jqXHR) {
-                    Toast.fire({
-                        icon: "success",
-                        title: "Evento creado, tenga en cuenta el tiempo de duracion de la prueba, para enviar los datos.",
-                        position: "bottom-end"
-
-                    });
-                    iniciarContadorRegresivo();
-
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('error')
-                    console.log(jqXHR.responseText)
-                    console.log(textStatus)
-                    console.log(errorThrown)
-                }
-            });
-        }
-
-    });
+    
 
     // Configuración del tiempo (en segundos) - puedes modificar este valor
     const TIEMPO_PRUEBA = 60; // 5 minutos = 300 segundos

@@ -175,7 +175,7 @@
 
     <!-- Información de versión -->
     <div class="version-info">
-        <i class="bi bi-tag-fill me-1"></i> V1.2.1
+        <i class="bi bi-tag-fill me-1"></i> V2.0.0
     </div>
 
     <section class="vh-100 d-flex align-items-center">
@@ -185,7 +185,7 @@
                     <div class="card bg-dark text-white login-card">
                         <div class="card-body p-4 p-sm-5">
                             <div class="text-center mb-4">
-                                <div class="appdata-logo">
+                                <div class="appdata-logo" >
                                     <i class="bi bi-database-fill"></i> AppData
                                 </div>
                                 <p class="text-muted">Sistema de gestión de información</p>
@@ -301,7 +301,24 @@
                     $(this).removeClass('is-invalid');
                 }
             });
+
+            // bajarLineas();
         });
+
+        // let bajarLineas = () => {
+        //     $.ajax({
+        //         // url: 'https://'+localStorage.getItem('dominio')+'/cda/index.php/Cservicio/getLineas',
+        //         url: 'https://cdatecmmas.tecmmas.com/cda/index.php/Cservicio/getLineas',
+        //         method: 'GET',
+        //         success: function(data) {
+        //             console.log('Líneas obtenidas:', data);
+        //         },
+        //         error: function(error) {
+        //             console.error('Error al obtener líneas:', error);
+        //         }
+        //     });
+        // }
+        // https://cdatecmmas.tecmmas.com/cda/index.php/Cservicio/getLineas
     </script>
 </body>
 

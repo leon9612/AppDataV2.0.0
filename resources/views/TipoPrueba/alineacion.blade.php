@@ -9,11 +9,12 @@
 
             <div class="row" data-aos="fade-in">
                 <div class="col-lg-12 mt-12 mt-lg-12 d-flex align-items-stretch">
-                    <form action="{{ url('/al') }}" method="POST" id="form-datos" class="form-control p-4 rounded shadow-sm">
+                    <form action="{{ url('/al') }}" method="POST" id="form-datos"
+                        class="form-control p-4 rounded shadow-sm">
                         @csrf
 
                         <!-- Alertas mejoradas -->
-                        @if ($message = Session::get('succses'))
+                        @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
                             <h5 class="alert-heading mb-2"><i class="bi bi-check-circle-fill me-2"></i>Exitoso</h5>
                             <p class="mb-0">{{ $message }}</p>
@@ -22,17 +23,15 @@
                         @endif
                         @if ($message = Session::get('error'))
                         <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
-                            <h5 class="alert-heading mb-2"><i class="bi bi-exclamation-triangle-fill me-2"></i>Error</h5>
+                            <h5 class="alert-heading mb-2"><i class="bi bi-exclamation-triangle-fill me-2"></i>Error
+                            </h5>
                             <p class="mb-0">{{ $message }}</p>
                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                         </div>
                         @endif
 
                         <!-- Componente reutilizable -->
-                        <x-vehicle-selector
-                            :placas="$placas"
-                            :usuarios="$usuarios"
-                            :maquinas="$maquinas" />
+                        <x-vehicle-selector :placas="$placas" :usuarios="$usuarios" :maquinas="$maquinas" />
 
                         <!-- Sección de mediciones de ejes mejorada -->
                         <div class="row mt-4">
@@ -45,46 +44,57 @@
 
                             <div class="col-sm-12 col-md-2 col-lg-2 mb-3">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" step="0.01" name="eje1" id="eje1" placeholder="1" value="{{ old('eje1') }}">
+                                    <input type="number" class="form-control" step="0.01" name="eje1" id="eje1"
+                                        placeholder="1" value="{{ old('eje1') }}">
                                     <label for="eje1">Eje 1</label>
                                     @if ($errors->has('eje1'))
-                                    <span class="error text-danger small mt-1 d-block">{{ $errors->first('eje1') }}</span>
+                                    <span
+                                        class="error text-danger small mt-1 d-block">{{ $errors->first('eje1') }}</span>
                                     @endif
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-2 col-lg-2 mb-3">
                                 <div class="form-floating">
-                                    <input type="number" step="0.01" class="form-control" placeholder="2" name="eje2" id="eje2" value="{{ old('eje2') }}">
+                                    <input type="number" step="0.01" class="form-control" placeholder="2" name="eje2"
+                                        id="eje2" value="{{ old('eje2') }}">
                                     <label for="eje2">Eje 2</label>
                                     @if ($errors->has('eje2'))
-                                    <span class="error text-danger small mt-1 d-block">{{ $errors->first('eje2') }}</span>
+                                    <span
+                                        class="error text-danger small mt-1 d-block">{{ $errors->first('eje2') }}</span>
                                     @endif
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-2 col-lg-2 mb-3">
                                 <div class="form-floating">
-                                    <input type="number" step="0.01" class="form-control" placeholder="3" name="eje3" id="eje3" value="{{ old('eje3') }}">
+                                    <input type="number" step="0.01" class="form-control" placeholder="3" name="eje3"
+                                        id="eje3" value="{{ old('eje3') }}">
                                     <label for="eje3">Eje 3</label>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-2 col-lg-2 mb-3">
                                 <div class="form-floating">
-                                    <input type="number" step="0.01" class="form-control" placeholder="4" name="eje4" id="eje4" value="{{ old('eje4') }}">
+                                    <input type="number" step="0.01" class="form-control" placeholder="4" name="eje4"
+                                        id="eje4" value="{{ old('eje4') }}">
                                     <label for="eje4">Eje 4</label>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-2 col-lg-2 mb-3">
                                 <div class="form-floating">
-                                    <input type="number" step="0.01" class="form-control" placeholder="5" name="eje5" id="eje5" value="{{ old('eje5') }}">
+                                    <input type="number" step="0.01" class="form-control" placeholder="5" name="eje5"
+                                        id="eje5" value="{{ old('eje5') }}">
                                     <label for="eje5">Eje 5</label>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-2 col-lg-2 mb-3 d-flex align-items-end">
+                                <input type="hidden" name="tipoprueba" id="tipoprueba" value="10">
+                                <input type="hidden" name="tipopruebaCi2" id="tipopruebaCi2" value="8">
+                                <input type="hidden" name="prueba" id="prueba" value="Alineacion">
+                               
                                 <button id="btn-guardar" class="btn btn-success w-100 py-3" type="submit">
                                     <i class="bi bi-check-lg me-2"></i>Guardar
                                 </button>
@@ -112,7 +122,7 @@
         }
     });
     $(document).ready(function() {
-
+        // document.getElementById("btn-guardar").disabled = true; // Deshabilitar el botón al cargar la página
     })
 
 
@@ -197,56 +207,7 @@
         }
     })
 
-    $("#btn-evento").click(function(ev) {
-        ev.preventDefault();
-        document.getElementById("btn-evento").disabled = true; // Deshabilitar el botón al hacer clic
-        if ($(".Vplaca").val() == null || $(".Vplaca").val() == "") {
-            Toast.fire({
-                icon: "error",
-                title: "Seleccione una placa",
-                position: "bottom-end"
-            });
-            document.getElementById("btn-evento").disabled = false;
-        } else {
-            Toast.fire({
-                icon: "info",
-                title: "Creando evento...",
-                timeout: 1000,
-                position: "bottom-end"
-            });
-            $.ajax({
-                url: 'getevento/',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    placa: $(".Vplaca").val(),
-                    prueba: 'Alineacion',
-                    tipoprueba: '10',
-                    tipovehiculo: '1',
-                    tipoevento: '1',
-                    _token: $("input[name='_token']").val()
-                },
-                success: function(data, textStatus, jqXHR) {
-                    document.getElementById("btn-evento").disabled = false;
-                    Toast.fire({
-                        icon: "success",
-                        title: "Evento creado, tenga en cuenta el tiempo de duracion de la prueba, para enviar los datos.",
-                        timeout: 1000,
-                        position: "bottom-end"
-                    });
-                    iniciarContadorRegresivo();
-
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('error')
-                    console.log(jqXHR.responseText)
-                    console.log(textStatus)
-                    console.log(errorThrown)
-                }
-            });
-        }
-
-    })
+    
 
     // Configuración del tiempo (en segundos) - puedes modificar este valor
     const TIEMPO_PRUEBA = 10; // 5 minutos = 300 segundos

@@ -24,7 +24,7 @@
                                     </div>
                                     
                                     <div class="alert alert-warning mt-3">
-                                        <h6 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Consideraciones para SICOV INDRA</h6>
+                                        <h6 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Consideraciones para el envio de las pruebas</h6>
                                         <p class="mb-0">Es crítico monitorear el tiempo de duración de la prueba posterior a la creación del evento inicial.</p>
                                     </div>
                                     

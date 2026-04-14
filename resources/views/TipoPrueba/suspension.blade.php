@@ -11,7 +11,7 @@
                 <div class="col-lg-12 mt-12 mt-lg-12 d-flex align-items-stretch">
                     <form action="{{ url('/su') }}" method="POST" class="form-control">
                         @csrf
-                        @if ($message = Session::get('succses'))
+                        @if ($message = Session::get('success'))
                         <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">Exitoso</h4>
                             <p>{{ $message }}</p>
@@ -24,18 +24,14 @@
                         </div>
                         @endif
 
-                        <x-vehicle-selector
-                            :placas="$placas"
-                            :usuarios="$usuarios"
-                            :maquinas="$maquinas" />
+                        <x-vehicle-selector :placas="$placas" :usuarios="$usuarios" :maquinas="$maquinas" />
                         <div class="row">
 
                             <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="number" class="form-control" step="0.01"
-                                            name="eje1d" id="eje1d" placeholder="1"
-                                            value="{{ old('eje1d') }}">
+                                        <input type="number" class="form-control" step="0.01" name="eje1d" id="eje1d"
+                                            placeholder="1" value="{{ old('eje1d') }}">
                                         <label for="floatingInput">Eje 1 Derecha</label>
                                         @if ($errors->has('eje1d'))
                                         <span class="error text-danger">{{ $errors->first('eje1d') }}</span>
@@ -47,9 +43,8 @@
                             <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="number" step="0.01" class="form-control"
-                                            placeholder="2" name="eje1i" id="eje1i"
-                                            value="{{ old('eje1i') }}">
+                                        <input type="number" step="0.01" class="form-control" placeholder="2"
+                                            name="eje1i" id="eje1i" value="{{ old('eje1i') }}">
                                         <label for="floatingInput">Eje 1 Izquierda</label>
                                         @if ($errors->has('eje1i'))
                                         <span class="error text-danger">{{ $errors->first('eje1i') }}</span>
@@ -61,9 +56,8 @@
                             <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="number" step="0.01" class="form-control"
-                                            placeholder="3" name="eje2d" id="eje2d"
-                                            value="{{ old('eje2d') }}">
+                                        <input type="number" step="0.01" class="form-control" placeholder="3"
+                                            name="eje2d" id="eje2d" value="{{ old('eje2d') }}">
                                         <label for="floatingInput">Eje 2 Derecha</label>
                                         @if ($errors->has('eje2d'))
                                         <span class="error text-danger">{{ $errors->first('eje2d') }}</span>
@@ -75,9 +69,8 @@
                             <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <div class="form-floating mb-3">
-                                        <input type="number" step="0.01" class="form-control"
-                                            placeholder="4" name="eje2i" id="eje2i"
-                                            value="{{ old('eje2i') }}">
+                                        <input type="number" step="0.01" class="form-control" placeholder="4"
+                                            name="eje2i" id="eje2i" value="{{ old('eje2i') }}">
                                         <label for="floatingInput">Eje 2 Izquierda</label>
                                         @if ($errors->has('eje2i'))
                                         <span class="error text-danger">{{ $errors->first('eje2i') }}</span>
@@ -87,8 +80,11 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-2 col-lg-2">
-                                <button style="width: 100%; height: 55px;" class="btn btn-outline-success"
-                                    type="submit">Guardar</button>
+                                <input type="hidden" name="tipoprueba" id="tipoprueba" value="9">
+                                <input type="hidden" name="tipopruebaCi2" id="tipopruebaCi2" value="6">
+                                <input type="hidden" name="prueba" id="prueba" value="Suspension">
+                                <button style="width: 100%; height: 55px;" id="btn-guardar"
+                                    class="btn btn-outline-success" type="submit">Guardar</button>
                             </div>
 
                         </div>
@@ -119,6 +115,11 @@
             toast.onmouseleave = Swal.resumeTimer;
         }
     });
+
+    $(document).ready(function() {
+        document.getElementById("btn-guardar").disabled = true; // Deshabilitar el botón al cargar la página
+    });
+
     $(".selPlaca").change(function(e) {
         e.preventDefault();
         var placa = $('.selPlaca option:selected').attr('value');
@@ -130,58 +131,60 @@
 
 
     });
-    $("#btn-evento").click(function(ev) {
-        ev.preventDefault();
-        document.getElementById("btn-evento").disabled = true;
-        if ($(".Vplaca").val() == null || $(".Vplaca").val() == "") {
-            Toast.fire({
-                icon: "error",
-                title: "Seleccione una placa",
-                position: "bottom-end"
-            });
-            document.getElementById("btn-evento").disabled = false;
-        } else {
-            Toast.fire({
-                icon: "info",
-                title: "Creando evento...",
-                timeout: 1000,
-                position: "bottom-end"
-            });
-            $.ajax({
-                url: 'getevento/',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    placa: $(".Vplaca").val(),
-                    prueba: 'Suspension',
-                    tipoprueba: '9',
-                    tipovehiculo: '1',
-                    tipoevento: '1',
-                    _token: $("input[name='_token']").val()
-                },
-                success: function(data, textStatus, jqXHR) {
-                    document.getElementById("btn-evento").disabled = false;
-                    Toast.fire({
-                        icon: "success",
-                        title: "Evento creado, tenga en cuenta el tiempo de duracion de la prueba, para enviar los datos.",
-                        timeout: 1000,
-                        position: "bottom-end"
-                    });
+    // $("#btn-evento").click(function(ev) {
+    //     ev.preventDefault();
+    //     document.getElementById("btn-evento").disabled = true;
+    //     if ($(".Vplaca").val() == null || $(".Vplaca").val() == "") {
+    //         Toast.fire({
+    //             icon: "error",
+    //             title: "Seleccione una placa",
+    //             position: "bottom-end"
+    //         });
+    //         document.getElementById("btn-evento").disabled = false;
+    //     } else {
+    //         Toast.fire({
+    //             icon: "info",
+    //             title: "Creando evento...",
+    //             timeout: 1000,
+    //             position: "bottom-end"
+    //         });
+    //         $.ajax({
+    //             url: 'getevento/',
+    //             type: 'post',
+    //             dataType: 'json',
+    //             data: {
+    //                 placa: $(".Vplaca").val(),
+    //                 prueba: 'Suspension',
+    //                 tipoprueba: '9',
+    //                 tipovehiculo: '1',
+    //                 tipoevento: '1',
+    //                 _token: $("input[name='_token']").val()
+    //             },
+    //             success: function(data, textStatus, jqXHR) {
+    //                 Swal.close();
+    //                 document.getElementById("btn-evento").disabled = false;
+    //                 document.getElementById("btn-guardar").disabled = false;
+    //                 Toast.fire({
+    //                     icon: "success",
+    //                     title: "Evento creado, tenga en cuenta el tiempo de duracion de la prueba, para enviar los datos.",
+    //                     timeout: 1000,
+    //                     position: "bottom-end"
+    //                 });
 
-                    // Luego mostrar el toast con un pequeño delay
-                    iniciarContadorRegresivo();
+    //                 // Luego mostrar el toast con un pequeño delay
+    //                 iniciarContadorRegresivo();
 
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('error')
-                    console.log(jqXHR.responseText)
-                    console.log(textStatus)
-                    console.log(errorThrown)
-                }
-            });
-        }
+    //             },
+    //             error: function(jqXHR, textStatus, errorThrown) {
+    //                 console.log('error')
+    //                 console.log(jqXHR.responseText)
+    //                 console.log(textStatus)
+    //                 console.log(errorThrown)
+    //             }
+    //         });
+    //     }
 
-    });
+    // });
 
     // Configuración del tiempo (en segundos) - puedes modificar este valor
     const TIEMPO_PRUEBA = 60; // 5 minutos = 300 segundos
@@ -300,13 +303,17 @@
                                     timeout: 100000
                                 });
                             }
-                            if (res.observacion == 'Suspensión delantera derecha' || res.observacion == 'Suspension delantera derecha')
+                            if (res.observacion == 'Suspensión delantera derecha' || res
+                                .observacion == 'Suspension delantera derecha')
                                 $("#eje1d").val(res.valor);
-                            if (res.observacion == 'Suspensión delantera izquierda' || res.observacion == 'Suspension delantera izquierda')
+                            if (res.observacion == 'Suspensión delantera izquierda' || res
+                                .observacion == 'Suspension delantera izquierda')
                                 $("#eje1i").val(res.valor);
-                            if (res.observacion == 'Suspension trasera derecha' || res.observacion == 'Suspension trasera derecha')
+                            if (res.observacion == 'Suspension trasera derecha' || res
+                                .observacion == 'Suspension trasera derecha')
                                 $("#eje2d").val(res.valor);
-                            if (res.observacion == 'Suspensión trasera izquierda' || res.observacion == 'Suspension trasera izquierda')
+                            if (res.observacion == 'Suspensión trasera izquierda' || res
+                                .observacion == 'Suspension trasera izquierda')
                                 $("#eje2i").val(res.valor);
 
                         });

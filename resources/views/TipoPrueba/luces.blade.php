@@ -12,7 +12,7 @@
                 <div class="col-lg-12 mt-12 mt-lg-12 d-flex align-items-stretch">
                     <form action="{{ url('/lu') }}" method="POST" class="form-control">
                         @csrf
-                        @if ($message = Session::get('succses'))
+                        @if ($message = Session::get('success'))
                         <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">Exitoso</h4>
                             <p>{{ $message }}</p>
@@ -25,10 +25,7 @@
                         </div>
                         @endif
                         <div style="margin-top: 15px">
-                            <x-vehicle-selector
-                                :placas="$placas"
-                                :usuarios="$usuarios"
-                                :maquinas="$maquinas" />
+                            <x-vehicle-selector :placas="$placas" :usuarios="$usuarios" :maquinas="$maquinas" />
                             <div class="col-sm-12 col-md-3 col-lg-3" style="align-content: center">
                                 <div class="input-group mb-3" style="align-content: center">
                                     <label class="input-group-text" for="inputGroupSelect01">Simultaneas</label>
@@ -215,8 +212,7 @@
                                         <div class="input-group mb-3" style="align-content: center">
                                             <div class="form-floating mb-3">
                                                 <input type="text" class="form-control" name="anti_derecha"
-                                                    id="anti_derecha" placeholder="1"
-                                                    value="{{ old('anti_derecha') }}">
+                                                    id="anti_derecha" placeholder="1" value="{{ old('anti_derecha') }}">
                                                 <label for="floatingInput">ANTI D</label>
                                                 @if ($errors->has('anti_derecha'))
                                                 <span
@@ -274,8 +270,7 @@
                                     <div class="col-sm-12 col-md-2 col-lg-2" style="align-content: center">
                                         <div class="input-group mb-3" style="align-content: center">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="sum-anti">
+                                                <input class="form-check-input" type="checkbox" value="" id="sum-anti">
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                     Sumar
                                                 </label>
@@ -428,11 +423,10 @@
                                             <div class="form-floating mb-3">
                                                 <input type="hidden" class="form-control" step="0.01"
                                                     name="intensidad_total" id="intensidad_total">
-                                                <input type="hidden" class="form-control" step="0.01"
-                                                    name="optLUx" id="optLUx">
+                                                <input type="hidden" class="form-control" step="0.01" name="optLUx"
+                                                    id="optLUx">
 
-                                                <label for="floatingInput" id="int_total"
-                                                    style="height: 60px"></label>
+                                                <label for="floatingInput" id="int_total" style="height: 60px"></label>
                                                 @if ($errors->has('intensidad_total'))
                                                 <span
                                                     class="error text-danger">{{ $errors->first('intensidad_total') }}</span>
@@ -448,8 +442,11 @@
 
                         <div class="row">
                             <div style="text-align: center">
-                                <button style="height: 55px; width: 150px" class="btn btn-outline-success"
-                                    type="submit">Guardar</button>
+                                <input type="hidden" name="tipoprueba" id="tipoprueba" value="1">
+                                <input type="hidden" name="tipopruebaCi2" id="tipopruebaCi2" value="9">
+                                <input type="hidden" name="prueba" id="prueba" value="Luces">
+                                <button style="height: 55px; width: 150px" id="btn-guardar"
+                                    class="btn btn-outline-success" type="submit">Guardar</button>
 
                             </div>
                         </div>
@@ -479,6 +476,11 @@
             toast.onmouseleave = Swal.resumeTimer;
         }
     });
+
+    $(document).ready(function() {
+        document.getElementById("btn-guardar").disabled = true; // Deshabilitar el botón al cargar la página
+    });
+
     $(".selPlaca").change(function(e) {
         e.preventDefault();
         var placa = $('.selPlaca option:selected').attr('value');
@@ -492,6 +494,7 @@
     var optLuxV = [0, 0, 0];
     var optLux = "0";
     $('#sum_bajas').change(function() {
+        document.getElementById("btn-guardar").disabled = false;
         var sumBajas = document.getElementById('sum_bajas').checked;
         if (sumBajas) {
             optLuxV[0] = 1;
@@ -520,6 +523,7 @@
     });
 
     $('#sum_altas').change(function() {
+        document.getElementById("btn-guardar").disabled = false;
         var sumAltas = document.getElementById('sum_altas').checked;
         if (sumAltas) {
             optLuxV[1] = 1;
@@ -549,6 +553,7 @@
     });
 
     $('#sum-anti').change(function() {
+        document.getElementById("btn-guardar").disabled = false;
         var sumAnti = document.getElementById('sum-anti').checked;
         if (sumAnti) {
             optLuxV[2] = 1;
@@ -571,7 +576,8 @@
             var anti3i = $("#anti_izquierda_3").val() ? $("#anti_izquierda_3").val() : 0;
             console.log(antid + " " + anti1d + " " + anti2d + " " + anti3d)
             console.log(antii + " " + anti1i + " " + anti2i + " " + anti3i)
-            var totalanti = (parseFloat(antid) + parseFloat(antii) + parseFloat(anti1d) + parseFloat(anti1i) + parseFloat(anti2i) + parseFloat(anti2d) + parseFloat(anti3i) + parseFloat(anti3d));
+            var totalanti = (parseFloat(antid) + parseFloat(antii) + parseFloat(anti1d) + parseFloat(anti1i) +
+                parseFloat(anti2i) + parseFloat(anti2d) + parseFloat(anti3i) + parseFloat(anti3d));
             var total = $("#intensidad_total").val() ? $("#intensidad_total").val() : 0;
             var n = parseFloat(total) + parseFloat(totalanti);
             $("#intensidad_total").val(parseFloat(total) + parseFloat(totalanti));
@@ -596,58 +602,7 @@
         console.log(binary);
     }
 
-    $("#btn-evento").click(function(ev) {
-        ev.preventDefault();
-        document.getElementById("btn-evento").disabled = true;
-        if ($(".Vplaca").val() == null || $(".Vplaca").val() == "") {
-            Toast.fire({
-                icon: "error",
-                title: "Seleccione una placa",
-                position: "bottom-end"
-            });
-            document.getElementById("btn-evento").disabled = false;
-        } else {
-            Toast.fire({
-                icon: "info",
-                title: "Creando evento...",
-                timeout: 1000,
-                position: "bottom-end"
-            });
-            $.ajax({
-                url: 'getevento/',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    placa: $(".Vplaca").val(),
-                    prueba: 'Luces',
-                    tipoprueba: '1',
-                    tipovehiculo: '1',
-                    tipoevento: '1',
-                    _token: $("input[name='_token']").val()
-                },
-                success: function(data, textStatus, jqXHR) {
-                    document.getElementById("btn-evento").disabled = false;
-                    Toast.fire({
-                        icon: "success",
-                        title: "Evento creado, tenga en cuenta el tiempo de duracion de la prueba, para enviar los datos.",
-                        timeout: 1000,
-                        position: "bottom-end"
-                    });
-
-                    // Luego mostrar el toast con un pequeño delay
-                    iniciarContadorRegresivo();
-
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('error')
-                    console.log(jqXHR.responseText)
-                    console.log(textStatus)
-                    console.log(errorThrown)
-                }
-            });
-        }
-
-    });
+    
 
     // Configuración del tiempo (en segundos) - puedes modificar este valor
     const TIEMPO_PRUEBA = 60; // 5 minutos = 300 segundos
