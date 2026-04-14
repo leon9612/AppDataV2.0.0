@@ -1,17 +1,27 @@
-
+ const Toast2 = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 5000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
 
 $("#btn-evento").click(function (ev) {
     ev.preventDefault();
     document.getElementById("btn-evento").disabled = true; // Deshabilitar el botón al hacer clic
     if ($(".Vplaca").val() == null || $(".Vplaca").val() == "") {
-        Toast.fire({
+        Toast2.fire({
             icon: "error",
             title: "Seleccione una placa",
             position: "bottom-end"
         });
         document.getElementById("btn-evento").disabled = false;
     } else {
-        Toast.fire({
+        Toast2.fire({
             icon: "info",
             title: "Creando evento desde tarit...",
             timeout: 1000,
@@ -33,7 +43,7 @@ $("#btn-evento").click(function (ev) {
                 document.getElementById("btn-evento").disabled = false;
                 document.getElementById("btn-guardar").disabled = false;
                 Swal.close();
-                Toast.fire({
+                Toast2.fire({
                     icon: "success",
                     title: "Evento creado, tenga en cuenta el tiempo de duracion de la prueba, para enviar los datos.",
                     timeout: 1000,
@@ -59,7 +69,7 @@ $("#btn-evento").click(function (ev) {
                     errorMessage = jqXHR.responseText || errorMessage;
                 }
 
-                Toast.fire({
+                Toast2.fire({
                     icon: "error",
                     title: errorMessage,
                     position: "bottom-end",
