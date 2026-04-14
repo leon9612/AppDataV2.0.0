@@ -373,9 +373,9 @@
                     " - Excede 0.5 según NTC 4231"
             });
 
-            document.getElementById("btn-guardar-opa").disabled = true;
+            document.getElementById("btn-guardar").disabled = true;
         } else {
-            document.getElementById("btn-guardar-opa").disabled = false;
+            document.getElementById("btn-guardar").disabled = false;
 
             // Opcional: mostrar mensaje de éxito si está dentro del rango
             Toast.fire({
