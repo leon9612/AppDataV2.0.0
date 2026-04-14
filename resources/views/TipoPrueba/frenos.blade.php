@@ -385,7 +385,7 @@
     <!-- ======= Contact Section ======= -->
 </main>
 
-@include('layout.footer')
+
 <script type="text/javascript">
     const Toast = Swal.mixin({
         toast: true,
@@ -809,3 +809,4 @@
         }
     })
 </script>
+@include('layout.footer')
